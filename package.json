@@ -1,0 +1,32 @@
+{
+  "name": "fooordering_app",
+  "version": "1.0.0",
+  "description": "react",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thilaks-hash/FoodOrdering_App.git"
+  },
+  "author": "thilagavathy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thilaks-hash/FoodOrdering_App/issues"
+  },
+  "homepage": "https://github.com/thilaks-hash/FoodOrdering_App#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserlist":[
+    "last 2 chrome version",
+    "last 2 Firefox version"
+  ]
+}
