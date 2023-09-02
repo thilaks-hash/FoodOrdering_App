@@ -1,13 +1,15 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filterRestaurant, setFilterRestaurant] = useState([]);
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
   useEffect(() => {
     fetchData();
   }, []);
@@ -34,6 +36,10 @@ const Body = () => {
   const handleChange = (e) => {
     setSearchText(e.target.value);
   };
+
+  if (useOnlineStatus === "fale") {
+    return <h1>oops! you are offline</h1>;
+  }
 
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
@@ -68,10 +74,7 @@ const Body = () => {
             key={restaurant?.info.id}
             to={"/restaurants/" + restaurant?.info.id}
           >
-            <RestaurantCard
-              key={restaurant?.info.id}
-              resData={restaurant?.info}
-            />
+            <RestaurantCard resData={restaurant?.info} />
           </Link>
         ))}
       </div>
